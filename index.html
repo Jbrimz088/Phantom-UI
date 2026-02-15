@@ -8,83 +8,117 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     background: radial-gradient(circle at top, #0b0b16, #050507 70%);
     color: #d0d4ff;
+    overflow-x: hidden; /* Prevents horizontal scroll on animations */
 }
 
 header {
     text-align: center;
-    padding: 60px 20px;
+    padding: clamp(40px, 10vh, 80px) 20px;
 }
 
 .logo {
-    font-size: 52px;
-    letter-spacing: 6px;
+    /* Fluid scaling: Min 36px, Max 64px, scales with screen width */
+    font-size: clamp(36px, 8vw, 64px); 
+    font-weight: 800;
+    letter-spacing: 8px;
     color: #8d97ff;
-    text-shadow: 0 0 18px rgba(120,140,255,0.6);
+    text-shadow: 0 0 20px rgba(120,140,255,0.4);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo:hover {
+    transform: scale(1.05); /* Subtle grow on the logo */
 }
 
 .subtitle {
     color: #6c72c9;
     margin-top: 10px;
+    font-size: clamp(14px, 2vw, 18px);
 }
 
 .container {
     max-width: 1100px;
     margin: auto;
-    padding: 30px;
+    padding: 0 30px 60px 30px;
 }
 
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
+    gap: 25px;
 }
 
 .card {
-    background: rgba(15,15,28,0.95);
+    background: rgba(15,15,28,0.7);
     border: 1px solid #2d3270;
-    border-radius: 12px;
-    padding: 20px;
-    transition: 0.25s;
+    border-radius: 16px;
+    padding: 25px;
+    backdrop-filter: blur(10px); /* Adds a modern glass effect */
+    transition: all 0.3s ease;
+    cursor: default;
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 20px rgba(90,110,255,0.3);
+    /* Scaling and lifting the card */
+    transform: translateY(-8px) scale(1.03);
+    border-color: #5a6eff;
+    box-shadow: 0 10px 30px rgba(90,110,255,0.2);
+    background: rgba(20,20,40,0.9);
 }
 
 .card h3 {
     margin-top: 0;
     color: #9ea6ff;
+    font-size: 22px;
 }
 
 .download {
     text-align: center;
-    margin: 50px 0;
+    margin: 80px 0;
 }
 
 .button {
     display: inline-block;
-    padding: 14px 30px;
-    border-radius: 8px;
-    background: linear-gradient(90deg,#6f7cff,#9ca6ff);
-    color: #000;
+    padding: 16px 40px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #6f7cff, #9ca6ff);
+    color: #050507;
     font-weight: bold;
     text-decoration: none;
-    transition: 0.2s;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(111, 124, 255, 0.3);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover {
+    transform: scale(1.1); /* Scaling the CTA button */
     filter: brightness(1.1);
+    box-shadow: 0 6px 25px rgba(111, 124, 255, 0.5);
+}
+
+.button:active {
+    transform: scale(0.95); /* Squish effect when clicked */
 }
 
 footer {
     text-align: center;
-    padding: 25px;
+    padding: 40px;
     color: #5d63b0;
-    font-size: 12px;
+    font-size: 13px;
+    border-top: 1px solid rgba(45, 50, 112, 0.3);
+}
+
+/* Smooth entrance animation for the cards */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease forwards;
 }
 </style>
 </head>
@@ -97,40 +131,39 @@ footer {
 </header>
 
 <div class="container">
-
-    <h2>Features</h2>
+    <h2 style="margin-bottom: 30px; font-size: 28px;">Features</h2>
 
     <div class="card-grid">
-        <div class="card">
+        <div class="card" style="animation-delay: 0.1s;">
             <h3>Performance</h3>
             <p>Optimized rendering and fast response for smooth gameplay.</p>
         </div>
 
-        <div class="card">
+        <div class="card" style="animation-delay: 0.2s;">
             <h3>Modern UI</h3>
             <p>Clean dark interface inspired by next-gen client design.</p>
         </div>
 
-        <div class="card">
+        <div class="card" style="animation-delay: 0.3s;">
             <h3>Custom Modules</h3>
             <p>Highly configurable system designed for flexibility and control.</p>
         </div>
 
-        <div class="card">
+        <div class="card" style="animation-delay: 0.4s;">
             <h3>Lightweight</h3>
             <p>Minimal resource usage while maintaining powerful functionality.</p>
         </div>
     </div>
 
     <div class="download">
-        <h2>Download</h2>
+        <h2 style="margin-bottom: 25px;">Ready to Play?</h2>
         <a class="button" href="#">Coming Soon</a>
     </div>
 
 </div>
 
 <footer>
-Phantom Client • Showcase Website
+    &copy; 2026 Phantom Client • Not an official Minecraft product.
 </footer>
 
 </body>
