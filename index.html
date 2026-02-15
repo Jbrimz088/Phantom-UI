@@ -14,7 +14,9 @@
 }
 
 *{box-sizing:border-box}
-body{
+
+html,body{
+height:100%;
 margin:0;
 font-family:Arial,Helvetica,sans-serif;
 background:radial-gradient(circle at top,var(--bg1),var(--bg2)70%);
@@ -26,8 +28,7 @@ color:var(--text);
 nav{
 position:sticky;
 top:0;
-background:rgba(10,10,20,.85);
-backdrop-filter:blur(10px);
+background:rgba(10,10,20,.9);
 border-bottom:1px solid #2b2f55;
 }
 
@@ -43,11 +44,19 @@ padding:14px 20px;
 .brand{color:var(--accent);font-weight:bold;letter-spacing:3px}
 .links a{margin-left:18px;color:#9aa0ff;text-decoration:none}
 
+/* PAGE WRAPPER — removes dead space */
+
+.page{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+}
+
 /* HEADER */
 
 header{
 text-align:center;
-padding:80px 20px;
+padding:70px 20px 40px;
 }
 
 .logo{
@@ -59,13 +68,23 @@ text-shadow:0 0 18px rgba(120,140,255,.6);
 
 .subtitle{color:#6c72c9;margin-top:10px}
 
+/* MAIN CONTENT */
+
+main{
+flex:1;
+max-width:1100px;
+margin:auto;
+width:100%;
+padding:20px;
+}
+
 /* GRID */
 
-.container{max-width:1100px;margin:auto;padding:30px}
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:18px;
+margin-top:20px;
 }
 
 .card{
@@ -75,12 +94,21 @@ border-radius:10px;
 padding:18px;
 transition:.25s;
 }
-.card:hover{transform:translateY(-4px);box-shadow:0 0 18px rgba(90,110,255,.3)}
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 0 18px rgba(90,110,255,.3);
+}
+
 .card h3{margin:0;color:#9ea6ff}
 
 /* DOWNLOAD */
 
-.download{text-align:center;margin:60px 0}
+.download{
+text-align:center;
+margin:60px 0;
+}
+
 .button{
 display:inline-block;
 padding:14px 30px;
@@ -91,13 +119,21 @@ text-decoration:none;
 font-weight:bold;
 }
 
-/* FOOTER */
+/* FOOTER sticks to bottom */
 
-footer{text-align:center;padding:20px;color:#5d63b0;font-size:12px}
+footer{
+text-align:center;
+padding:20px;
+color:#5d63b0;
+font-size:12px;
+border-top:1px solid #1a1d44;
+}
 </style>
 </head>
 
 <body>
+
+<div class="page">
 
 <nav>
 <div class="nav-inner">
@@ -115,7 +151,7 @@ footer{text-align:center;padding:20px;color:#5d63b0;font-size:12px}
 <div class="subtitle">Clean • Fast • Modern Minecraft Client</div>
 </header>
 
-<div class="container">
+<main>
 
 <h2>Features</h2>
 
@@ -131,9 +167,11 @@ footer{text-align:center;padding:20px;color:#5d63b0;font-size:12px}
 <a class="button" href="#">Coming Soon</a>
 </div>
 
-</div>
+</main>
 
 <footer>Phantom Client • Showcase</footer>
+
+</div>
 
 </body>
 </html>
