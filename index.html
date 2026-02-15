@@ -14,133 +14,51 @@
 }
 
 *{box-sizing:border-box}
-
-html,body{
-height:100%;
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:radial-gradient(circle at top,var(--bg1),var(--bg2)70%);
-color:var(--text);
-}
+html,body{margin:0;height:100%;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top,var(--bg1),var(--bg2)70%);color:var(--text);}
 
 /* NAV */
 
-nav{
-position:sticky;
-top:0;
-background:rgba(10,10,20,.9);
-border-bottom:1px solid #2b2f55;
-}
-
-.nav-inner{
-max-width:1100px;
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:14px 20px;
-}
-
+nav{position:sticky;top:0;background:rgba(10,10,20,.9);border-bottom:1px solid #2b2f55;}
+.nav-inner{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:14px 20px;}
 .brand{color:var(--accent);font-weight:bold;letter-spacing:3px}
 .links a{margin-left:18px;color:#9aa0ff;text-decoration:none}
 
-/* PAGE WRAPPER — removes dead space */
-
-.page{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-}
-
 /* HEADER */
 
-header{
-text-align:center;
-padding:70px 20px 40px;
-}
-
-.logo{
-font-size:clamp(40px,8vw,64px);
-color:var(--accent);
-letter-spacing:6px;
-text-shadow:0 0 18px rgba(120,140,255,.6);
-}
-
+header{text-align:center;padding:70px 20px 30px;}
+.logo{font-size:clamp(40px,8vw,64px);color:var(--accent);letter-spacing:6px;text-shadow:0 0 18px rgba(120,140,255,.6);}
 .subtitle{color:#6c72c9;margin-top:10px}
 
-/* MAIN CONTENT */
+/* MAIN */
 
-main{
-flex:1;
-max-width:1100px;
-margin:auto;
-width:100%;
-padding:20px;
-}
+main{max-width:1100px;margin:auto;padding:20px}
 
 /* GRID */
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
-margin-top:20px;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:20px}
+.card{background:#0f1024;border:1px solid #2d3270;border-radius:10px;padding:18px;transition:.25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 0 18px rgba(90,110,255,.3)}
+.card h3{margin:0 0 8px;color:#9ea6ff}
 
-.card{
-background:#0f1024;
-border:1px solid #2d3270;
-border-radius:10px;
-padding:18px;
-transition:.25s;
-}
+/* SECTION */
 
-.card:hover{
-transform:translateY(-4px);
-box-shadow:0 0 18px rgba(90,110,255,.3);
-}
+section{margin-top:50px}
 
-.card h3{margin:0;color:#9ea6ff}
+/* FOOTER */
 
-/* DOWNLOAD */
-
-.download{
-text-align:center;
-margin:60px 0;
-}
-
-.button{
-display:inline-block;
-padding:14px 30px;
-background:linear-gradient(90deg,#6f7cff,#9ca6ff);
-border-radius:8px;
-color:#000;
-text-decoration:none;
-font-weight:bold;
-}
-
-/* FOOTER sticks to bottom */
-
-footer{
-text-align:center;
-padding:20px;
-color:#5d63b0;
-font-size:12px;
-border-top:1px solid #1a1d44;
-}
+footer{text-align:center;padding:20px;color:#5d63b0;font-size:12px;border-top:1px solid #1a1d44}
 </style>
 </head>
 
 <body>
-
-<div class="page">
 
 <nav>
 <div class="nav-inner">
 <div class="brand">PHANTOM</div>
 <div class="links">
 <a href="#">Features</a>
-<a href="#">Preview</a>
+<a href="#">System</a>
+<a href="#">Security</a>
 <a href="#">Download</a>
 </div>
 </div>
@@ -153,25 +71,55 @@ border-top:1px solid #1a1d44;
 
 <main>
 
-<h2>Features</h2>
-
+<!-- FEATURES -->
+<section>
+<h2>Core Features</h2>
 <div class="grid">
-<div class="card"><h3>Performance</h3>Fast and optimized gameplay.</div>
-<div class="card"><h3>Modern UI</h3>Clean dark interface.</div>
-<div class="card"><h3>Custom Modules</h3>Flexible configuration system.</div>
-<div class="card"><h3>Lightweight</h3>Minimal resource usage.</div>
+<div class="card"><h3>Performance</h3>Optimized for fast and smooth gameplay.</div>
+<div class="card"><h3>Modern UI</h3>Clean and minimal dark interface.</div>
+<div class="card"><h3>Custom Modules</h3>Flexible and configurable system.</div>
+<div class="card"><h3>Lightweight</h3>Minimal system resource usage.</div>
+<div class="card"><h3>Stability</h3>Reliable and consistent performance.</div>
+<div class="card"><h3>Customization</h3>Fully adjustable visual and control settings.</div>
 </div>
+</section>
 
-<div class="download">
-<h2>Download</h2>
-<a class="button" href="#">Coming Soon</a>
+<!-- SYSTEM -->
+<section>
+<h2>System</h2>
+<div class="grid">
+<div class="card"><h3>Fast Startup</h3>Loads quickly with minimal delay.</div>
+<div class="card"><h3>Low Memory Use</h3>Efficient RAM and CPU usage.</div>
+<div class="card"><h3>Clean Code</h3>Optimized internal structure.</div>
+<div class="card"><h3>Scalable</h3>Built to support future expansion.</div>
 </div>
+</section>
+
+<!-- SECURITY -->
+<section>
+<h2>Security</h2>
+<div class="grid">
+<div class="card"><h3>Protected Build</h3>Stable and protected core.</div>
+<div class="card"><h3>Safe Execution</h3>Designed for reliability.</div>
+<div class="card"><h3>Integrity Check</h3>Maintains consistent behavior.</div>
+<div class="card"><h3>Trusted System</h3>Focused on stability and safety.</div>
+</div>
+</section>
+
+<!-- DOWNLOAD -->
+<section>
+<h2>Download</h2>
+<div class="grid">
+<div class="card"><h3>Latest Version</h3>Coming Soon.</div>
+<div class="card"><h3>Loader</h3>Future release planned.</div>
+<div class="card"><h3>Updates</h3>Automatic system updates.</div>
+<div class="card"><h3>Compatibility</h3>Supports major environments.</div>
+</div>
+</section>
 
 </main>
 
 <footer>Phantom Client • Showcase</footer>
-
-</div>
 
 </body>
 </html>
